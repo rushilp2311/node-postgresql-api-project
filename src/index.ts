@@ -1,8 +1,8 @@
-const express = require("express");
-const users = require("./routes/users");
+import express from "express";
+import users from "./routes/users";
 
 // Initializing the Application
-const app = express();
+const app: express.Application = express();
 
 app.use(express.json());
 
