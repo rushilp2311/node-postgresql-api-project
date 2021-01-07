@@ -2,10 +2,10 @@ const { on } = require("..");
 const database = require("./db");
 
 async function getAllUsers() {
-  return await database.then(async (p: any) => {
+  return await database.then(async (pool: any) => {
     try {
 
-      let { rows } = await p
+      let { rows } = await pool
         .query("SELECT * FROM users LIMIT 5");
       return rows;
     }
@@ -15,6 +15,6 @@ async function getAllUsers() {
   });
 }
 
-module.exports = {
-  getAllUsers: getAllUsers,
+export  {
+  getAllUsers
 };

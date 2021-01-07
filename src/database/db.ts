@@ -1,14 +1,17 @@
 const { Pool } = require("pg");
+const config = require('config');
+
+const db = config.get('db');
 
 const pool = new Pool({
   connectionString:
-    "postgresql://rushildp:aarya2006@localhost:5432/message_boards",
+    db,
 });
 
 async function startdb() {
   const client = await pool
     .connect()
-    .then(console.log("Connected to Database"));
+    .then(console.log(`Connected to ${db}`));
   return client;
 }
 
